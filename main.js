@@ -26,7 +26,7 @@ function copyCurrentFilePathWithCurrentLineNumber() {
     throw new DocumentIsUntitled;
   }
 
-  const path = document.uri.path;
+  const path = vscode.workspace.asRelativePath(document.uri.path);
   const lineNumber = editor.selection.active.line + 1;
 
   return `${path}:${lineNumber}`;
